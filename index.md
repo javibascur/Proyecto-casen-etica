@@ -1,4 +1,6 @@
-# Activismo de Datos con CASEN 2024
+---
+layout: default
+---
 
 > **Curso:** Ética para Ciencia de Datos y Estadística  
 > **Integrantes:** [Nombre Integrante 1] · [Nombre Integrante 2] · [Nombre Integrante 3]  
