@@ -2,12 +2,6 @@
 layout: default
 ---
 
-> **Curso:** Ética para Ciencia de Datos y Estadística  
-> **Integrantes:** [Nombre Integrante 1] · [Nombre Integrante 2] · [Nombre Integrante 3]  
-> **Recursos:** [Repositorio GitHub](https://github.com/javibascur/Proyecto-casen-etica) · [Notebook Taller 4](https://drive.google.com/file/d/1H-fX66zxXDvHD7SxKWuTbtTQXOil2tOA/view?usp=sharing)
-
----
-
 ## 1. Introducción y Relevancia del Problema
 
 ### 1.1 Selección del Dataset
