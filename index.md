@@ -7,6 +7,8 @@ layout: default
 ### 1.1 Selección del Dataset
 * [Espacio para justificar la elección de la Encuesta CASEN 2024]
 * [Mención al tipo de información que contiene y a qué escala opera]
+La elección del dataset de la encuesta CASEN 2024 radica en que permite estudiar las condiciones de vida en los hogares en Chile y observar desigualdades que no siempre se pueden ver en estudios generales. Contiene infomración sobre pobreza multidimensional, vivienda, composición del hogar y características demográficas. Su análisis es relevante para las políticas públicas, en especial para orientar recursos y evaluar necesidades sociales.
+Aún así, los datos no nos dicen todo. Aspectos como las decisiones que se realizan para manejar estos datos, como qué variables utilizar, cómo representar a distintos grupos, qué modelos construir y qué información publicar pueden beneficiar o perjudicar a distintas personas. Es por esto, que abordamos la encuesta CASEN 2024 desde una perspectiva de activismo de datos, usando la evidencia para hacer visibles las desigualdades que pueden haber y realizar un tratamiento responsable de la información.
 
 ### 1.2 Relevancia Social y Ética
 * [Explicación de por qué el tema impacta vidas reales y políticas públicas]
