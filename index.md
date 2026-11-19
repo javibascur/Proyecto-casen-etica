@@ -2,21 +2,29 @@
 layout: default
 ---
 
-## 1. Introducción y Relevancia del Problema
+## Introducción y Relevancia del Problema
 
-### 1.1 Selección del Dataset
-* [Espacio para justificar la elección de la Encuesta CASEN 2024]
-* [Mención al tipo de información que contiene y a qué escala opera]
 La elección del dataset de la encuesta CASEN 2024 radica en que permite estudiar las condiciones de vida en los hogares en Chile y observar desigualdades que no siempre se pueden ver en estudios generales. Contiene infomración sobre pobreza multidimensional, vivienda, composición del hogar y características demográficas. Su análisis es relevante para las políticas públicas, en especial para orientar recursos y evaluar necesidades sociales.
 Aún así, los datos no nos dicen todo. Aspectos como las decisiones que se realizan para manejar estos datos, como qué variables utilizar, cómo representar a distintos grupos, qué modelos construir y qué información publicar pueden beneficiar o perjudicar a distintas personas. Es por esto, que abordamos la encuesta CASEN 2024 desde una perspectiva de activismo de datos, usando la evidencia para hacer visibles las desigualdades que pueden haber y realizar un tratamiento responsable de la información.
 
-### 1.2 Relevancia Social y Ética
-* [Explicación de por qué el tema impacta vidas reales y políticas públicas]
-* [Preguntas guía que motivaron el análisis a lo largo del semestre]
+## Desarrollo de los talleres:
 
----
+### Taller 1: ¿A quiénes representan los datos?
+Exploramos las variables del dataset y analizamos la representación de distintos grupos, considerando características como pertenencia indígena, orientación sexual e identidad de género. Logramos observar desbalance entre categorías y discutimos sus posibles consecuencias. Entre ellas, encontramos que cuando algunos grupos aparecen con poca frecuencia, los análisis y modelos pueden describir peor sus realidades. También identificamos la importancia de revisar los datos y sus categorías para poder sacar conclusiones.
 
-## 2. Visualización Representativa
+### Taller 2: ¿Un modelo preciso es siempre justo?
+Entrenamos un árbol de decisión para predecir la pobreza multidimensional y evaluamos su desempeño con métricas de clasificación y equidad. Al comparar grupos en cuanto a variables relacionadas con discapacidad, identificamos diferencias importantes en los errores del modelo. Además, los falsos negativos fueron superiores en personas pobres siendo clasificadas como no pobres.
+Por otro lado, utilizamos una técnica de mitigación de sesgos. En nuestro análisis, las diferencias entre grupos disminuyeron, pero también disminuyó levemente la exactitud general. Esto demuestra que evaluar solamente el accuracy no es suficiente cuando las predicciones podrían influir en el acceso a ayudas sociales.
+
+### Taller 3: ¿Podemos explicar las decisiones de la IA?
+Utilizamos LIME para examinar como un modelo de lenguaje clasificaba comentarios hipotéticos sobre beneficios sociales. Encontramos casos en que expresiones de agradecimiento acompañadas de críticas eran clasificadas como neutras, lo que podría llevar a que problemas relevantes de las experiencias de las personas no sean escuchados.
+Además, aplicamos SHAP a un modelo de random forest relacionado con pobreza multidimensional. Esto nos permitió entender qué variables influían en sus predicciones. Explicaciones como estas ayudan a auditar modelos, pero aún así no reemplazan la revisión humana, ni aseguran relaciones causales.
+
+### Taller 4: ¿Cómo proteger la privacidad sin perder utilidad en la información?
+Revisamos la encuesta desde un enfoque de derechos humanos y la regulación chilena sobre protección de datos. Luego generamos datos sintéticos con DataSynthesizer, usando siete variables: pobreza multidimensional, sexo, edad, integrantes del hogar, área, pertenencia indígena y hacinamiento. Elegimos el modo correlated_attribute para intentar conservar algunas distribuciones y relaciones estadísticas.
+Al comparar los datos originales con los sintéticos mediante ModelInspector, pudimos observar distribuciones bastante similares en variablesc como sexo, área y pertenencia indígena. Además, se mantuvieron algunas relaciones, como la de índice de hacinamiento con pobreza multidimensional. Aún así, hubieron diferencias en categorías menos frecuentes y algunas variaciones en la proporción de pobreza.
+
+## Visualización Representativa
 
 > *A continuación se presenta un hallazgo central desarrollado a lo largo de los talleres.*
 
