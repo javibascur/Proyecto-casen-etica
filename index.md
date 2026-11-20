@@ -73,17 +73,21 @@ Retoma variables centrales de los talleres previos (`r3`, `pobreza_multi`, `tot_
 
 ---
 
-## 3. Metodología y Análisis de la Visualización
+## 3. Metodología: Proceso y Tratamiento de Datos
 
-### 3.1 Proceso y Tratamiento de Datos
+El trabajo completo se construyó sobre la encuesta CASEN 2024, verificando primero la ausencia de valores nulos y revisando los valores extremos de las variables numéricas mediante el rango intercuartílico (IQR), una medida de dispersión que ayuda a identificar cifras inusualmente altas o bajas. Aunque se detectaron valores estadísticamente extremos (por ejemplo, en gasto eléctrico `v24b` o tamaño del hogar `tot_per_h`), estos correspondían a rangos válidos según el libro de códigos de CASEN, por lo que se conservaron para no distorsionar la realidad socioeconómica observada. A partir de esta base común, cada etapa aplicó un tratamiento específico:
 
-- [Explicación paso a paso de qué se hizo para llegar a ese resultado]
-- [Variables involucradas y decisiones metodológicas tomadas]
+- **Análisis de representación:** Se seleccionaron variables sensibles y demográficas especialmente pertenencia a pueblo indígena (`r3`) y orientación sexual (`os1`) para construir cruces interseccionales calculando frecuencias absolutas y porcentajes respecto del total de la muestra.
+- **Modelamiento y auditoría de equidad:** Se definió `pobreza_multi` como variable objetivo 82,4% No pobre y 17,6% Pobre y se dividió el conjunto de forma estratificada en 80% para entrenamiento y 20% para prueba, asegurando que ambos subconjuntos mantuvieran la misma proporción de clases.
 
-### 3.2 Interpretación de Hallazgos
+  Las 34 variables categóricas se transformaron con `OneHotEncoder` (técnica que convierte cada categoría en una columna independiente de 0 y 1 para evitar que el modelo asuma un orden artificial entre ellas) y las 7 numéricas se ajustaron con `StandardScaler` (método que lleva las variables a una escala comparable para que cifras de distinta magnitud no dominen el cálculo). Con estos ,datos se entrenó un árbol de decisión usando `class_weight="balanced"`, un parámetro que da mayor peso a la clase minoritaria Pobre para compensar el desbalance.
 
-- [Qué nos dice la visualización sobre la realidad observada]
-- [Qué desigualdades, patrones o riesgos de privacidad quedaron en evidencia]
+  Luego, las predicciones se auditaron con Aequitas, agrupando en dos categorías Privilegiado y No Privilegiado, tres atributos sensibles: pertenencia indígena (`r3`), dificultad de cuidado personal (`h7e`) y dificultad para comunicarse (`h7f`).
+
+  Finalmente, se evaluaron dos estrategias de mitigación de sesgos: `EqOddsPostprocessing`, que ajusta las predicciones después del entrenamiento para equiparar las tasas de error entre grupos, y `Reweighing`, que repondera el peso de los registros antes de entrenar para equilibrar la influencia de cada grupo.
+
+- **Explicabilidad de predicciones:** Manteniendo la división estratificada 80/20, se entrenó un `RandomForestClassifier`, un modelo que combina múltiples árboles de decisión para lograr predicciones más estables. Para interpretar qué variables impulsaban la predicción de la clase Pobre, se aplicó `shap.TreeExplainer`, un método basado en valores **SHAP** que cuantifica cuánto y en qué dirección influye cada atributo en la decisión del modelo sobre una muestra de 50 observaciones del conjunto de prueba.
+- **Privacidad diferencial y datos sintéticos:** Se acotó la base a 7 variables clave que combinan perfil demográfico y condiciones de vida. Con DataSynthesizer se construyó un modelo probabilístico que aprende cómo se relacionan las variables entre sí, aplicando privacidad diferencial. Por último, la fidelidad del conjunto sintético se evaluó con ModelInspector, comparando las distribuciones mediante histogramas y un mapa de calor.
 
 ---
 
