@@ -95,14 +95,12 @@ El trabajo completo se construyó sobre la encuesta CASEN 2024, verificando prim
 
 ### 4.1 Síntesis del Proyecto
 
-- [Resumen de los aprendizajes principales del semestre aplicados al dataset]
+- Es importante tener en cuenta que los algoritmos no son neutros, estos están moldeados por los contextos político, socioculturales e históricos y por las estructuras de poder. A su vez, estos encarnan las intenciones, valores y sesgos de sus creadores y de las bases de datos utilizadas para entrenarlos. Esto nos lleva a que al buscar soluciones ante un problema de injusticia, no basta simplemente con añadir una programación, si no que se debe ver todo el contexto de donde se origina. Así, en el caso CASEN (taller 1) vimos que variables como la pobreza multidimensional, las carencias habitacionales o el acceso a servicios son construcciones institucionales situadas histórica y políticamente para focalizar el gasto público.
+- Otro punto importante, es la objetividad fuerte; la cual exige que el desarrollo y la investigación de la IA comiencen desde la perspectiva de las personas más afectadas por las desigualdades. Sin esto, se arriega a que se reproduzcan desigualdades sistemáticas al optimizar todo para los grupos más rentables y dominantes, perjudicando a las minorías. En el análisis de CASEN, al cruzar subpoblaciones (orientación sexual, identidad trans y pueblo indígena), se identificó un desbalance muestral: mientras los heterosexuales no indígenas sumaban más del 83.9% de los datos, las personas transexuales e indígenas representaban apenas un 0.002%. Si un modelo se entrena sin considerar estas diferencias extremas, el algoritmo se centraría en favorecer a la clases dominantes.
+- En el tema de la acurracy global, es importante examinar las distribuciones, porque una métrica muy alta puede estar escondiendo una discriminación. En el taller 2, se entrenó un Árbol de Decisión para clasificar pobreza multidimensional. El modelo arrojó un Accuracy  de 93.6%. Sin embargo, al examinar la distribución real, el 82.4% de la muestra correspondía a la clase "No pobre". Esto escondía una tasa de falsos negativos.
+- En el ciclo de Machine Learning se evaluaron dos estrategias de mitigación: Post-procesamiento y Pre-procesamiento; aplicando estos métodos queda demostrada el teorema de la imposibilidad, lo cual significa que es imposible maximizar la paridad estadística, igualdad de oportunidades y la exactitud predictiva. Esto nos lleva a tener que decidir qué es "más importante".
+- Todo lo mencionado, se conecta con la importancia de cumplir con los principios de Human Rights approach to data: Participación, Desagregación de datos, Auto-identificación, Transparencia, Privacidad y Rendición de cuentas. Cumplir con estos principios, nos lleva a un mejor manejo de datos; más ético y justo.
 
-### 4.2 Propuesta desde el Activismo de Datos
-
-- [Cómo usar estos hallazgos para cuestionar injusticias, exigir rendición de cuentas al Estado o proteger a las comunidades vulnerables]
-- [Llamado a la acción o recomendaciones para el tratamiento ético de estos datos]
-
----
 
 ## 5. Referencias y Marco Teórico
 
